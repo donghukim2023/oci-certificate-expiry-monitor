@@ -101,15 +101,15 @@ end
 def send_email(to, subject, body)
   Pony.mail({
               to: to,
-              from: "certificatcher@#{EMAIL_DOMAIN}",
+              from: "tiger.one@#{EMAIL_DOMAIN}",
               reply_to: "noreply@#{EMAIL_DOMAIN}",
               via: :smtp,
               via_options: {
                 address: SMTP_ENDPOINT,
                 port: '587',
-                user_name: get_secret_value(OCI_SECRET_SMTP_USERNAME),
-                password: get_secret_value(OCI_SECRET_SMTP_PASSWORD),
-                authentication: :plain, # :plain, :login, :cram_md5, no auth by default
+#                user_name: get_secret_value(OCI_SECRET_SMTP_USERNAME),
+#                password: get_secret_value(OCI_SECRET_SMTP_PASSWORD),
+#                authentication: :plain, # :plain, :login, :cram_md5, no auth by default
                 domain: EMAIL_DOMAIN # the HELO domain provided by the client to the server
               },
               subject: subject,
